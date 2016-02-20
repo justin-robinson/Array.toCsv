@@ -19,7 +19,7 @@
         return;
     }
 
-    // Polyfill for Object.values
+    // Polyfills
     if (!Object.values) {
         /**
          * Returns the values in an object
@@ -35,6 +35,11 @@
             }
 
             return values;
+        };
+    }
+    if (!Array.isArray) {
+        Array.isArray = function (arg) {
+            return Object.prototype.toString.call(arg) === '[object Array]';
         };
     }
 
@@ -124,13 +129,13 @@
 
             // determine what kind of values this array holds
             var processor;
-            if (typeof this[0] === 'object') {
+            if (Array.isArray(this[0])) {
+                processor = new ArrayProcessor();
+            } else if ( typeof this[0] === 'object') {
                 processor = new ObjectProcessor();
 
                 // use object keys as header row if the array does in fact contain objects
                 csvString += processor.processKeys(this[0]);
-            } else if (this[0].isArray) {
-                processor = new ArrayProcessor();
             } else {
                 processor = new ScalarProcessor();
             }
@@ -147,3 +152,31 @@
         return csvString;
     };
 });
+
+Array.prototype.toCsv.call([["Col1","Col2","Col3"],[2,3,4]]);
+
+
+console.log(Array.prototype.toCsv.call([
+    {
+        header1 : '1',
+        header2 : '2',
+        header3 : '3'
+    },
+    {
+        header1 : '2234',
+        header2 : '00',
+        header3 : '11'
+    },
+    {
+        header1 : '4810',
+        header2 : '45984',
+        header3 : '564'
+    },
+    {
+        header1 : '235',
+        header2 : '2134',
+        header3 : '56'
+    }
+]));
+
+
