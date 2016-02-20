@@ -2,36 +2,6 @@
  * Adds toCsv() to the Array prototype
  * Handles Array values of Objects, Arrays, and plain scalars
  *
- * var data = [
- *  {
- *      one: '1',
- *      two: '2',
- *      three: '3'
- *  },
- *  {
- *      one: '2234',
- *      two: '00',
- *      three: '11'
- *  },
- *  {
- *      one: '4810',
- *      two: '45984',
- *      three: '564'
- *  },
- *  {
- *      one: '235',
- *      two: '2134',
- *      three: '56'
- *  }
- *  ];
- *  console.log(data.toCsv());
- *
- *  OUTPUT:
- *  "one","two","three"
- *  "1","2","3"
- *  "2234","00","11"
- *  "4810","45984","564"
- *  "235","2134","56"
  */
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
@@ -133,8 +103,11 @@
 
     ScalarProcessor.prototype = Object.create(ProcessorAbstract.prototype);
     ScalarProcessor.constructor = ScalarProcessor;
+    ScalarProcessor.prototype._process = function (scalar) {
+        return JSON.stringify(scalar) + '\n';
+    }
     ScalarProcessor.prototype.processValues = function (scalar) {
-        return this._process([scalar]);
+        return this._process(scalar);
     };
 
     /**
