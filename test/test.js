@@ -41,8 +41,7 @@ describe('Array', function() {
                 ['e','f','g']
             ];
 
-            var expectedResult = '"0","1","2"\n' +
-                '"a","b","c"\n' +
+            var expectedResult = '"a","b","c"\n' +
                 '"e","f","g"';
 
             assert.equal(data.toCsv(), expectedResult);
@@ -80,6 +79,6 @@ describe('Array', function() {
                 '"Clemson Tigers","Clemson, SC"';
 
             assert.equal(data.toCsv(), expectedResult);
-        })
+        });
     });
 });
