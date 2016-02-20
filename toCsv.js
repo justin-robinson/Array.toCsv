@@ -152,31 +152,3 @@
         return csvString;
     };
 });
-
-Array.prototype.toCsv.call([["Col1","Col2","Col3"],[2,3,4]]);
-
-
-console.log(Array.prototype.toCsv.call([
-    {
-        header1 : '1',
-        header2 : '2',
-        header3 : '3'
-    },
-    {
-        header1 : '2234',
-        header2 : '00',
-        header3 : '11'
-    },
-    {
-        header1 : '4810',
-        header2 : '45984',
-        header3 : '564'
-    },
-    {
-        header1 : '235',
-        header2 : '2134',
-        header3 : '56'
-    }
-]));
-
-
