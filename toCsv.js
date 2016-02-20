@@ -55,9 +55,13 @@
          * @private
          */
         _process: function (valuesArray) {
-            // Use the power of stringify to escape potential double quotes
-            // but we need to remove the brackets [] it wraps our array in
-            return JSON.stringify(valuesArray).slice(1,-1) + '\n';
+            // use the power of stringify to escape potential double quotes
+            // map ensures all values are strings
+            // slice removes the leading and trailing bracket from the stringify
+            return JSON.stringify(valuesArray.map(
+                    function (value) {
+                        return String(value);
+                    })).slice(1,-1) + '\n';
         },
         processKeys: function () {
             return '';
@@ -152,3 +156,9 @@
         return csvString;
     };
 });
+
+[
+    ['a','b','c'],
+    ['e','f','g'],
+    [1,'2',3]
+].toCsv();

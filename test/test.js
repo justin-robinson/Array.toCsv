@@ -38,11 +38,13 @@ describe('Array', function() {
 
             var data = [
                 ['a','b','c'],
-                ['e','f','g']
+                ['e','f','g'],
+                [1,'2',3]
             ];
 
             var expectedResult = '"a","b","c"\n' +
-                '"e","f","g"';
+                '"e","f","g"\n' +
+                '"1","2","3"';
 
             assert.equal(data.toCsv(), expectedResult);
         });
