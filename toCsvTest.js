@@ -1,45 +1,25 @@
-/**
- * OUTPUT:
-
- "one","two","three"
- "1","2","3"
- "2234","00","11"
- "4810","45984","564"
- "235","2134","56"
- "0","1","2"
- "a","b","c"
- "e","f","g"
- "how"
- "dee"
- "hoe"
- "my \"goat\" is dead"
- "two"
- "three"
-
- */
-
 require('./toCsv.js');
 
 var data = [
     {
-        one: '1',
-        two: '2',
-        three: '3'
+        header1 : '1',
+        header2 : '2',
+        header3 : '3'
     },
     {
-        one: '2234',
-        two: '00',
-        three: '11'
+        header1 : '2234',
+        header2 : '00',
+        header3 : '11'
     },
     {
-        one: '4810',
-        two: '45984',
-        three: '564'
+        header1 : '4810',
+        header2 : '45984',
+        header3 : '564'
     },
     {
-        one: '235',
-        two: '2134',
-        three: '56'
+        header1 : '235',
+        header2 : '2134',
+        header3 : '56'
     }
 ];
 console.log(data.toCsv());
@@ -58,8 +38,8 @@ data = [
 console.log(data.toCsv());
 
 data = [
-    'my "goat" is dead',
-    'two',
+    'my "boat" has holes in it',
+    'another """"""" string with double quotes """""""""',
     'three'
 ];
 console.log(data.toCsv());
