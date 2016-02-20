@@ -105,7 +105,7 @@
     ScalarProcessor.constructor = ScalarProcessor;
     ScalarProcessor.prototype._process = function (scalar) {
         return JSON.stringify(scalar) + '\n';
-    }
+    };
     ScalarProcessor.prototype.processValues = function (scalar) {
         return this._process(scalar);
     };
