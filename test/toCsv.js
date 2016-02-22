@@ -1,7 +1,7 @@
 require('../toCsv.js');
 var assert = require('assert');
 describe('Array', function() {
-    describe('toCsv()', function () {
+    describe('#toCsv()', function () {
         it('should convert array of objects to csv', function () {
 
             var data = [
