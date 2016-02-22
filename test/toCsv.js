@@ -150,5 +150,16 @@ describe('Array', function() {
                 '"235","2134","56"';
             assert.equal(data.toCsv(), expectedResult);
         });
+
+        it('should convert null values to empty strings', function() {
+
+            var data = [
+                ['1', null, '3']
+            ];
+
+            var expectedResult = '"1","","3"';
+
+            assert.equal(data.toCsv(), expectedResult);
+        });
     });
 });

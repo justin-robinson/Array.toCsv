@@ -43,7 +43,7 @@
             // slice removes the leading and trailing bracket from the stringify
             return JSON.stringify(valuesArray.map(
                     function (value) {
-                        return String(value);
+                        return String(value === null ? '' : value);
                     })).slice(1,-1) + '\n';
         },
         processKeys: function () {
@@ -78,7 +78,7 @@
      */
     ObjectProcessor.prototype.processValues= function (object) {
 
-        // order the values the mimic the header row
+        // order the values to match the header row
         var values = [];
         for (var i = 0; i< this.headerRowColumnOrder.length; i++) {
             values.push(object[this.headerRowColumnOrder[i]]);
