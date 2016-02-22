@@ -39,7 +39,7 @@ describe('Array', function() {
             var data = [
                 ['a','b','c'],
                 ['e','f','g'],
-                [1,'2',3]
+                ['1','2','3']
             ];
 
             var expectedResult = '"a","b","c"\n' +
@@ -81,6 +81,41 @@ describe('Array', function() {
                 '"Clemson Tigers","Clemson, SC"';
 
             assert.equal(data.toCsv(), expectedResult);
+        });
+
+        it('should wrap all values in double quotes', function () {
+
+            var data = [
+                ['a','b','c'],
+                ['e','f','g'],
+                [1,2,3]
+            ];
+
+            var expectedResult = '"a","b","c"\n' +
+                '"e","f","g"\n' +
+                '"1","2","3"';
+
+            assert.equal(data.toCsv(), expectedResult);
+
+            data = [
+                {
+                    col1 : 1,
+                    col2 : 2,
+                    col3 : 3
+                },
+                {
+                    col1 : 4,
+                    col2 : 5,
+                    col3 : 6
+                }
+            ];
+
+            expectedResult = '"col1","col2","col3"\n' +
+                    '"1","2","3"\n' +
+                    '"4","5","6"';
+
+            assert.equal(data.toCsv(), expectedResult)
+
         });
     });
 });
