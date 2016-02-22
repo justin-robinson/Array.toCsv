@@ -20,23 +20,6 @@
     }
 
     // Polyfills
-    if (!Object.values) {
-        /**
-         * Returns the values in an object
-         * @param object
-         * @returns {Array}
-         */
-        Object.values = function (object) {
-            var values = [];
-            for (var key in object) {
-                if (object.hasOwnProperty(key)) {
-                    values.push(object[key]);
-                }
-            }
-
-            return values;
-        };
-    }
     if (!Array.isArray) {
         Array.isArray = function (arg) {
             return Object.prototype.toString.call(arg) === '[object Array]';
@@ -82,7 +65,11 @@
      * @param object
      */
     ObjectProcessor.prototype.processKeys = function (object) {
-        return this._process(Object.keys(object));
+
+        // the order of keys on the first row will be used to print out values
+        this.headerRowColumnOrder = Object.keys(object);
+
+        return this._process(this.headerRowColumnOrder);
     };
 
     /**
@@ -90,7 +77,13 @@
      * @param object
      */
     ObjectProcessor.prototype.processValues= function (object) {
-        return this._process(Object.values(object));
+
+        // order the values the mimic the header row
+        var values = [];
+        for (var i = 0; i< this.headerRowColumnOrder.length; i++) {
+            values.push(object[this.headerRowColumnOrder[i]]);
+        }
+        return this._process(values);
     };
 
     // Array Processor
@@ -156,9 +149,3 @@
         return csvString;
     };
 });
-
-[
-    ['a','b','c'],
-    ['e','f','g'],
-    [1,'2',3]
-].toCsv();

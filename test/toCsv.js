@@ -117,5 +117,38 @@ describe('Array', function() {
             assert.equal(data.toCsv(), expectedResult)
 
         });
+
+        it('should maintain the order of key value pairs for objects', function () {
+
+            var data = [
+                {
+                    header1 : '1',
+                    header2 : '2',
+                    header3 : '3'
+                },
+                {
+                    header2 : '00',
+                    header1 : '2234',
+                    header3 : '11'
+                },
+                {
+                    header3 : '564',
+                    header1 : '4810',
+                    header2 : '45984'
+                },
+                {
+                    header3 : '56',
+                    header2 : '2134',
+                    header1 : '235'
+                }
+            ];
+
+            var expectedResult = '"header1","header2","header3"\n' +
+                '"1","2","3"\n' +
+                '"2234","00","11"\n' +
+                '"4810","45984","564"\n' +
+                '"235","2134","56"';
+            assert.equal(data.toCsv(), expectedResult);
+        });
     });
 });
