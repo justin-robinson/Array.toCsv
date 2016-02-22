@@ -161,5 +161,16 @@ describe('Array', function() {
 
             assert.equal(data.toCsv(), expectedResult);
         });
+
+        it('should properly escape double quotes', function () {
+
+            var data = [
+                ['"macaroni"']
+            ];
+
+            var expectedResult = '"\\"macaroni\\""';
+
+            assert.equal(data.toCsv(), expectedResult);
+        });
     });
 });
