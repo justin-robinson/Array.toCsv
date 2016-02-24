@@ -6,15 +6,15 @@
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as anonymous module.
-        define([], factory(Array, Object));
+        define([], factory(Array));
     } else if (typeof exports === 'object') {
         // CommonJS
-        module.exports = factory(Array, Object);
+        module.exports = factory(Array);
     } else {
         // Browser globals.
-        factory(Array, Object);
+        factory(Array);
     }
-})(function (Array, Object) {
+})(function (Array) {
     if (Array.prototype.toCsv) {
         return;
     }
