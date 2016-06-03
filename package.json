@@ -1,0 +1,14 @@
+{
+  "name": "Array.toCsv",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:justin-robinson/Array.toCsv.git"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
