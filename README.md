@@ -1,4 +1,5 @@
-https://travis-ci.org/justin-robinson/Array.toCsv.svg?branch=master
+[![Build Status](https://travis-ci.org/justin-robinson/Array.toCsv.svg?branch=master)](https://travis-ci.org/justin-robinson/Array.toCsv.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/justin-robinson/Array.toCsv/badge.svg?branch=master)](https://coveralls.io/github/justin-robinson/Array.toCsv?branch=master)
 # Array.toCsv
 
 * Adds toCsv() to the Array prototype
