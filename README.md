@@ -1,3 +1,4 @@
+https://travis-ci.org/justin-robinson/Array.toCsv.svg?branch=master
 # Array.toCsv
 
 * Adds toCsv() to the Array prototype

@@ -1,4 +1,4 @@
-require('../toCsv.js');
+require('../src/toCsv.js');
 var assert = require('assert');
 describe('Array', function() {
     describe('#toCsv()', function () {
